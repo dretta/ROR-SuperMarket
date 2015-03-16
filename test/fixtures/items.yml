@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+item1:
+  name: "Ruby Gem"
+  description: "A real Ruby Gem, the stone, not the software."
+  price: 1337.00
+
+item2:
+  name: "Rails Set"
+  description: "A set of metal Rails, used for railroads, not software."
+  price: 420.00

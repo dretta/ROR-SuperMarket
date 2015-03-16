@@ -25,3 +25,25 @@ User.create!(
 		activated: true,
 		activated_at: Time.zone.now)
 end
+
+Item.create!(
+  name: "Ruby Gem",
+  description: "A real Ruby Gem, the stone, not the software.",
+  price: 1337.00
+)
+
+Item.create!(
+  name: "Rails Set",
+  description: "A set of metal Rails, used for railroads, not software.",
+  price: 420.00
+)
+
+98.times do |n|
+  	name  = "Item#{n+2}: #{Faker::Commerce.product_name}"
+  	description = Faker::Lorem.sentence(1)
+	price = 1.00
+	item = Item.create!(
+  		name: name,
+  		description: description,
+  		price: price)	
+end
