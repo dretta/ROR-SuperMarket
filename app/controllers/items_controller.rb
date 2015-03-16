@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def index
   	#@items = Item.paginate(page: params[:page])
   	@items = Item.all
+  	debugger
   end
 
 end

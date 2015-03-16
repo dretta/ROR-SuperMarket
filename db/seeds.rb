@@ -39,7 +39,7 @@ Item.create!(
 )
 
 98.times do |n|
-  	name  = "Item#{n+2}: #{Faker::Commerce.product_name}"
+  	name  = "Item#{n+2}"
   	description = Faker::Lorem.sentence(1)
 	price = 1.00
 	item = Item.create!(
