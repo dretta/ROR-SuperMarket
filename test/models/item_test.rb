@@ -57,25 +57,24 @@ class ItemTest < ActiveSupport::TestCase
 		assert_not dup_item.valid? #fails
 	end
 
+	test "priceMaker should be valid" do
+		100.times do
+			price = Item.priceMaker
+			@item.price = price
+			assert @item.valid?, "price is #{@item.price}"
+		end
+	end
+
+	test "nameMaker should be valid" do
+		name = "" 
+		100.times do
+			name = Item.nameMaker
+			item = Item.new
+			item = @item.dup
+			item.name = name
+			item.save!
+			assert item.valid?, "name is not unique"
+		end
+	end
 
 end
-
-=begin
-require 'test_helper'
-
-class ItemTest < ActiveSupport::TestCase
-
-  def setup
-    @item = Item.new(name: "Example Item", description: "Some kind of Item", price: 1.00)
-  end
-
-  test "name should be unique" do
-    duplicate_item = @item.dup
-    @item.save!
-    duplicate_item.valid? # need this to populate errors
-    assert duplicate_item.errors
-    assert duplicate_item.errors[:name]
-    Rails::logger.debug duplicate_item.errors.full_messages
-  end
-end
-=end

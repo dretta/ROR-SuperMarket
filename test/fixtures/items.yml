@@ -1,11 +1,34 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-item1:
+Ruby:
   name: "Ruby Gem"
   description: "A real Ruby Gem, the stone, not the software."
   price: 1337.00
 
-item2:
+Rails:
   name: "Rails Set"
   description: "A set of metal Rails, used for railroads, not software."
   price: 420.00
+
+Model:
+  name: "How to Create a Model"
+  description: "A book about to become a coach in the modelling industry, has nothing to do with Active Records."
+  price: 111.00
+
+View:
+  name: "How to Make yours Views Better"
+  description: "A book that improves the way you see everything except the way your website looks."
+  price: 222.00
+
+Controller:
+  name: "How to Build your own Controller"
+  description: "A book that shows you how to make a contorller for every device, doesn't help with MVC Design pattern though."
+  price: 333.00
+
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "Extra Item #{n}" %>
+  description: <%= "Extra Item Number #{n}" %>
+  price: <%= n+10 %>
+<% end %>

@@ -39,9 +39,9 @@ Item.create!(
 )
 
 98.times do |n|
-  	name  = "Item#{n+2}"
+  	name  = Item.nameMaker
   	description = Faker::Lorem.sentence(1)
-	price = 1.00
+	price = Item.priceMaker
 	item = Item.create!(
   		name: name,
   		description: description,
