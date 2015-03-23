@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base	
+	include PgSearch
 	validates :name, presence: true, length: { maximum: 100 }
 	validates :description, presence: true, 
 		length: { maximum: 1000 }
@@ -7,6 +8,20 @@ class Item < ActiveRecord::Base
 		:format => { with: VALID_PRICE_REGEX }, 
 		:numericality => {:greater_than => 0}
 	validates_uniqueness_of :name
+
+	scope :sorted, ->{ order(name: :asc) }
+	pg_search_scope :search,
+                  against: [
+                    :name,
+                    :description,
+                    :price
+                  ],
+                  using: {
+                    tsearch: {
+                      prefix: true,
+                      normalization: 2
+                    }
+                  }
 
 
 	def Item.priceMaker
@@ -23,16 +38,14 @@ class Item < ActiveRecord::Base
 		name = ""
 		loop do
 			name = Faker::Commerce.product_name
-			puts "Name: #{name}"
+#			puts "Name: #{name}"
 			item = Item.find_by(name: name)
 			if item.nil? 
-				puts "#{name} not found"
+#				puts "#{name} not found"
 				break 
-			else 
-
 			end
 		end	
-		puts "Returning Name #{name}"
+#		puts "Returning Name #{name}"
 		return name
 	end
 

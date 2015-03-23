@@ -19,7 +19,6 @@ gem 'turbolinks',               '2.3.0'
 gem 'jbuilder',                 '2.2.3'
 gem 'sdoc',                     '0.4.0', group: :doc
 gem 'thin'
-gem 'factory_girl'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -38,3 +37,25 @@ group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'puma',				'2.11.1'
 end
+
+gem 'pg_search'
+
+gem 'haml-rails'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'newrelic_rpm'
+
+gem 'react-rails', github: 'reactjs/react-rails'
+gem 'sprockets-coffee-react'
+gem "active_model_serializers", github: 'rails-api/active_model_serializers'
+
+gem 'annotate', github: 'ctran/annotate_models'
+gem 'font-awesome-rails'
+
+gem 'nprogress-rails', github: 'caarlos0/nprogress-rails'
+gem 'momentjs-rails', github: 'derekprior/momentjs-rails'
+gem "js-routes", github: 'railsware/js-routes'
+
+gem 'kaminari'
+gem 'gon'
