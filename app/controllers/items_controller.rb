@@ -7,12 +7,15 @@ class ItemsController < ApplicationController
 
 
 	def index
+		@current_user = current_user
 
 		# Index without React
-		#@items = Item.paginate(page: params[:page])
-		@items = Kaminari.paginate_array(Item.first(10)).page(params[:page])
-		@current_user = current_user 
+		@items = Item.paginate(page: params[:page])
+		
+# Index with React 
 
+		@items = Kaminari.paginate_array(Item.first(10)).page(params[:page])
+=begin
 		render json: {
 			items: @items,
 			meta: {
@@ -23,6 +26,7 @@ class ItemsController < ApplicationController
 				total_count: @items.total_count
 			}
 		}
+=end
 	end
 
 
