@@ -5,6 +5,15 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	def create 
+		item = Item.new(params[:post]) 
+		if item.save 
+			redirect_to :action => :index 
+		else 
+			render "new" 
+		end 
+	end
+
 
 	def index
 		@current_user = current_user
@@ -15,8 +24,12 @@ class ItemsController < ApplicationController
 # Index with React 
 
 		@items = Kaminari.paginate_array(Item.first(10)).page(params[:page])
+
+		render "index.html.haml"
+
 =begin
 		render json: {
+			
 			items: @items,
 			meta: {
 				current_page: @items.current_page,
@@ -25,6 +38,7 @@ class ItemsController < ApplicationController
 				total_pages: @items.total_pages,
 				total_count: @items.total_count
 			}
+
 		}
 =end
 	end

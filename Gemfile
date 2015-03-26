@@ -22,7 +22,6 @@ gem 'thin'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
-  gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
 end
@@ -38,15 +37,18 @@ group :production do
   gem 'puma',				'2.11.1'
 end
 
-gem 'pg_search'
 
-gem 'haml-rails'
+gem 'byebug'
+gem 'pg_search'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'newrelic_rpm'
 
 gem 'react-rails', github: 'reactjs/react-rails'
+gem 'showdown-rails'
+gem 'autoprefixer-rails'
+
 gem 'sprockets-coffee-react'
 gem "active_model_serializers", github: 'rails-api/active_model_serializers'
 
