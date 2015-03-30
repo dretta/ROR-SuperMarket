@@ -1,4 +1,9 @@
 <li>
 	<%= link_to item.name, item %>
 	<%= item.priceFormat %>
+	
+	<% if current_user.admin? && !current_user?(item) %>
+    	| <%= link_to "delete", item, method: :delete, data: { confirm: "You sure?" } %>
+	<% end %>
+
 </li>

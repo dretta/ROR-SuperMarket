@@ -3,8 +3,15 @@
 	Name: <%= @item.name %> 
 </h1>
 <h2>
+
 	Price: <%= @item.priceFormat %>
+	<% if  @current_user && @current_user.admin? %>
+		<ul><%= link_to "Edit item", edit_item_path(@item) %></ul>
+<% end %>
 </h2>
+
+
+
 <p>
 	Description: 
 		<%= @item.description %> 
