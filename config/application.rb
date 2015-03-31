@@ -23,5 +23,8 @@ module RORSuperMarket
     # React config
     config.react.addons = true
 
+    #Deprecation Suppression
+    config.active_record.raise_in_transactional_callbacks = true
+
   end
 end
