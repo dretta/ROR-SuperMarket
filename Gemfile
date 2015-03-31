@@ -61,3 +61,4 @@ gem "js-routes", github: 'railsware/js-routes'
 
 gem 'kaminari'
 gem 'gon'
+gem 'figaro'
