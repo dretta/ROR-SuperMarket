@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 	before_filter :search_items
-	before_action :admin_user,	only: :destroy
-	
+	before_action :logged_in_user, only: [:edit, :update, :destroy]
+	before_action :admin_user,	only: [:edit, :update, :destroy]
+
 	def show
 		@item = Item.find(params[:id])
 		@current_user = current_user
@@ -58,10 +59,6 @@ class ItemsController < ApplicationController
 
 		def item_params
 			params.require(:item).permit(:name, :description, :price)
-		end
-
-		def admin_user
-			redirect_to(root_url) unless @current_user.admin?
 		end
 
 		def search_items

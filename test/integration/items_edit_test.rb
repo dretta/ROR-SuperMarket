@@ -1,13 +1,15 @@
 require 'test_helper'
 
-class UsersEditTest < ActionDispatch::IntegrationTest
+class ItemsEditTest < ActionDispatch::IntegrationTest
+
 
   def setup
     @admin = users(:michael)
     @item = items(:Ruby)
   end
 
-  test "unsuccessful edit" do
+  test "unsuccessful item edit" do
+    log_in_as(@admin)
     get edit_item_path(@item)
     assert_template 'items/edit'
     patch item_path(@item), item: { 
@@ -17,7 +19,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'items/edit'
   end
 
-  test "successful edit" do
+  test "successful item edit" do
+    log_in_as(@admin)
     get edit_item_path(@item)
     assert_template 'items/edit'
     name  = "Some Item"

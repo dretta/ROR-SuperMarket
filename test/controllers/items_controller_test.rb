@@ -3,8 +3,9 @@ require 'test_helper'
 class ItemsControllerTest < ActionController::TestCase
 
 	def setup
-		@user       = users(:michael)
+		@user = users(:michael)
 		@other_user = users(:archer)
+		@item = items(:Ruby) 
 	end
 
 	test "should get new" do
@@ -12,19 +13,48 @@ class ItemsControllerTest < ActionController::TestCase
 		assert_response :success
 	end
 
-	test "should redirect destroy when not admin" do
+	test "should redirect edit when not logged in" do
+		get :edit, id: @user
+		assert_not flash.empty?
+		assert_redirected_to login_url
+	end
+
+	test "should redirect update when not logged in" do
+		patch :update, id: @user, user: { name: @user.name, email: @user.email }
+		assert_not flash.empty?
+		assert_redirected_to login_url
+	end
+
+	test "should redirect edit when logged in as non-admin" do
+		log_in_as(@other_user)
+		get :edit, id: @user
+		assert_not flash.empty?
+		assert_redirected_to root_url
+	end
+
+
+	test "should redirect update when logged in as non-admin" do
+		log_in_as(@other_user)
+		patch :update, id: @user, user: { name: @user.name, email: @user.email }
+		assert_not flash.empty?
+		assert_redirected_to root_url
+	end
+
+
+	test "should redirect destroy when not logged in" do
 		assert_no_difference 'Item.count' do
 			delete :destroy, id: @item
 		end
-		assert_redirected_to item_url
+		assert_redirected_to login_url
 	end
+
 
 	test "should redirect destroy when logged in as a non-admin" do
 		log_in_as(@other_user)
 		assert_no_difference 'Item.count' do
 			delete :destroy, id: @item
 		end
-		assert_redirected_to item_url
+		assert_redirected_to root_url
 	end
 
 end
