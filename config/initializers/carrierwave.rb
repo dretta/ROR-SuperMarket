@@ -11,8 +11,8 @@ if Rails.env.production?
 			:host => 's3.example.com',
 			:endpoint => 'https://s3.example.com:8080'
 		}
-		config.fog_directory     =  ENV['S3_BUCKET']
-		config.fog_public     = false # optional, defaults to true
+		config.fog_directory =  ENV['AWS_BUCKET']
+		config.fog_public = false # optional, defaults to true
 		config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 	end
 end
