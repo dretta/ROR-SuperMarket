@@ -4,31 +4,42 @@ Ruby:
   name: "Ruby Gem"
   description: "A real Ruby Gem, the stone, not the software."
   price: 1337.00
+  created_at: <%= 20.years.ago %>
 
 Rails:
   name: "Rails Set"
   description: "A set of metal Rails, used for railroads, not software."
   price: 420.00
+  created_at: <%= 9.years.ago %>
 
 Model:
   name: "How to Create a Model"
   description: "A book about to become a coach in the modelling industry, has nothing to do with Active Records."
-  price: 111.00
+  price: 333.00
+  created_at: <%= 333.days.ago %>
 
 View:
   name: "How to Make yours Views Better"
   description: "A book that improves the way you see everything except the way your website looks."
   price: 222.00
+  created_at: <%= 222.days.ago %>
 
 Controller:
   name: "How to Build your own Controller"
   description: "A book that shows you how to make a contorller for every device, doesn't help with MVC Design pattern though."
-  price: 333.00
+  price: 111.00
+  created_at: <%= 111.days.ago %>
 
+most_recent:
+  name: "Brand Spanking New"
+  description: "It's the hottest thing to hit your stores! Get it while supplies last!"
+  price: 999999.99
+  created_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "Extra Item #{n}" %>
   description: <%= "Extra Item Number #{n}" %>
   price: <%= n+10 %>
+  created_at: <%= 30.days.ago %>
 <% end %>

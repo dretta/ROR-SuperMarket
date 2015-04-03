@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331055911) do
+ActiveRecord::Schema.define(version: 20150402221743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20150331055911) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "shoppingcarts", force: :cascade do |t|
+    t.integer  "size"
+    t.decimal  "total"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shoppingcarts", ["user_id", "created_at"], name: "index_shoppingcarts_on_user_id_and_created_at", using: :btree
+  add_index "shoppingcarts", ["user_id"], name: "index_shoppingcarts_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -49,4 +60,5 @@ ActiveRecord::Schema.define(version: 20150331055911) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "shoppingcarts", "users"
 end

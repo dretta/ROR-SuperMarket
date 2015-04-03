@@ -66,4 +66,12 @@ class UserTest < ActiveSupport::TestCase
 		assert_not @user.authenticated?(:remember, '')
   	end
 
+	test "associated shoppingcart should be destroyed" do
+		@user.save	
+		@user.create_shoppingcart!(size: 1, total:1.00)
+		assert_difference 'Shoppingcart.count', -1 do
+			@user.destroy
+		end		
+	end
+
 end

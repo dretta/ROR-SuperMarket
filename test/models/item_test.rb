@@ -57,6 +57,10 @@ class ItemTest < ActiveSupport::TestCase
 		assert_not dup_item.valid? #fails
 	end
 
+	test "order should be oldest first" do
+		assert_equal Item.first, items(:Ruby)
+	end
+
 	test "priceMaker should be valid" do
 		100.times do
 			price = Item.priceMaker
