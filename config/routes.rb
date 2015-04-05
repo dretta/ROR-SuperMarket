@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'shoppingcarts/show'
 
   get 'password_resets/new'
 
@@ -16,7 +17,12 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users
+
+  resources :users do
+    resource :shoppingcart
+  end
+  #resources :shoppingcart, :path_names => {:new =>,}
+  
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :items
