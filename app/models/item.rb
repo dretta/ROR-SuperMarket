@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base	
 	include PgSearch
+	belongs_to :shoppingcart
 	default_scope -> {order(created_at: :asc)}
 	validates :name, presence: true, length: { maximum: 100 }
 	validates :description, presence: true, 

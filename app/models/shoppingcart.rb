@@ -1,5 +1,6 @@
 class Shoppingcart < ActiveRecord::Base
 	belongs_to :user
+	has_many :items
 	validates :user_id, presence: true
 	validates :size, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
 	validates :total, presence: true, :numericality => { :greater_than_or_equal_to => 0.00 }
