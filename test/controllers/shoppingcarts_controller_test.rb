@@ -7,7 +7,6 @@ class ShoppingcartsControllerTest < ActionController::TestCase
 		log_in_as(@user)
 	end
 
-
 	test "should get show" do
 		puts(@user.name)
 		puts(@user.id)

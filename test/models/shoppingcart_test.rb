@@ -11,6 +11,7 @@ class ShoppingcartTest < ActiveSupport::TestCase
 		assert @cart.valid?
 	end
 		
+
 	test "size should never be negative" do
 		@cart.size = -1		
 		assert_not @cart.valid?

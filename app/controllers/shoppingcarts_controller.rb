@@ -5,6 +5,7 @@ class ShoppingcartsController < ApplicationController
   	@user = User.find(current_user.id)
   	@shoppingcart = @user.build_shoppingcart
   end
+  
 =begin
   def create
   	@user = User.find(current_user)
