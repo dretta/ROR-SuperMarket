@@ -23,6 +23,7 @@ class ItemsIndexTest < ActionDispatch::IntegrationTest
 		end
 	end
 
+
 	test "item index as non-admin" do
 		log_in_as(@non_admin)
 		get items_path

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ShoppingcartsControllerTest < ActionController::TestCase
   
+  
 	def setup
 		@user = users(:michael)
 		log_in_as(@user)

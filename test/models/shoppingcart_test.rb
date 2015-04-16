@@ -10,7 +10,6 @@ class ShoppingcartTest < ActiveSupport::TestCase
 	test "should be valid" do
 		assert @cart.valid?
 	end
-		
 
 	test "size should never be negative" do
 		@cart.size = -1		
