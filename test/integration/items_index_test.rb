@@ -8,10 +8,11 @@ class ItemsIndexTest < ActionDispatch::IntegrationTest
 		@non_admin = users(:archer)
 	end
 
-	
+
 
 	test "item index as admin including pagination and delete links" do
 		log_in_as(@admin)
+		
 		get items_path
 		assert_template 'items/index'
 		assert_select 'div.pagination'

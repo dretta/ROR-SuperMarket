@@ -70,7 +70,7 @@ class UserTest < ActiveSupport::TestCase
 
 	test "associated shoppingcart should be destroyed" do
 		@user.save	
-		@user.create_shoppingcart!(size: 1, total:1.00)
+		@user.create_shoppingcart!(Shoppingcart.new(:size,:total))
 		assert_difference 'Shoppingcart.count', -1 do
 			@user.destroy
 		end		

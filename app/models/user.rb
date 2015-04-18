@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :shoppingcart, dependent: :destroy
+	has_many :items, through: :shoppingcart
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save :downcase_email
 	before_create :create_activation_digest
@@ -14,6 +15,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length:{ minimum: 6}, allow_blank: true
 	validate :picture_size
+	validates :shoppingcart, presence: true
 
 	# Returns the hash digest of the given string.
 	def User.digest(string)
