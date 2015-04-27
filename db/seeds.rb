@@ -13,8 +13,7 @@ User.create!(
 	admin: true,
 	activated: true,
 	activated_at: Time.zone.now,
-	picture: "admin.png"
-	shoppingcart: Shoppingcart.new)
+	picture: "admin.png")
 
 99.times do |n|
 	name  = Faker::Name.name
