@@ -1,4 +1,4 @@
-# Ruby on Rails Tutorial: sample application
+# Ruby-on-Rails SuperMarket Application
 
 This is an E-Commerce Application. 
 
