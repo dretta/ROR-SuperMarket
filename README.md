@@ -1,6 +1,7 @@
-# Ruby on Rails Tutorial: sample application
+# Ruby-on-Rails SuperMarket Application
 
-This is the sample application for the
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+This is an E-Commerce Application. 
+
+You can create an account, log on, select items to buy, place them in your shopping cart, and checkout your shopping cart.
+
+The application development is still in progress, not all features are currently available.
